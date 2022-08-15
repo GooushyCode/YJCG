@@ -20,6 +20,5 @@ public class UserService {
 
     public User findAll(){
         return userMapper.findAll();
-
     }
 }

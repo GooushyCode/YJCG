@@ -11,11 +11,7 @@ public class TestController {
     @Resource
     private UserService userService;
 
-    @GetMapping("/hi")
-    public String hi(){
-        return "hello";
-    }
-
+    // 返回hello
     @RequestMapping("/hello")
     public String hello(){
         return "hello";
