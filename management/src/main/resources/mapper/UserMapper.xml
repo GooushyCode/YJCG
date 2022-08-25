@@ -10,4 +10,8 @@
     <select id="findAll" resultMap="userMap">
         select * from `user`;
     </select>
+
+    <insert id="saveUser" parameterType="com.yijia.management.vo.User">
+        insert into user(username,password)values (#{username},#{password});
+    </insert>
 </mapper>

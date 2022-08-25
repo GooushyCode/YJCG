@@ -21,4 +21,8 @@ public class UserService {
     public User findAll(){
         return userMapper.findAll();
     }
+
+    public String saveUser(User user){
+        return userMapper.saveUser(user);
+    }
 }

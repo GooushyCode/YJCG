@@ -5,4 +5,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
     int login(String username,String password);
     User findAll();
+    String saveUser(User user);
 }
