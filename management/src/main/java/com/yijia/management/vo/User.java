@@ -5,6 +5,7 @@ public class User {
     private int id;
     private String username;
     private String password;
+    private int role;
 
     public int getId() {
         return id;
@@ -30,12 +31,21 @@ public class User {
         this.password = password;
     }
 
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", role=" + role +
                 '}';
     }
 }

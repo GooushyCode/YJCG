@@ -3,7 +3,13 @@
 <mapper namespace="com.yijia.management.mapper.UserMapper">
     <resultMap id="userMap" type="com.yijia.management.vo.User">
         <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="role" column="role"></result>
     </resultMap>
+    <sql id="Base_column_List">
+        id, username, password, role
+    </sql>
     <select id="login" resultMap="userMap">
         SELECT COUNT(*) from `user` WHERE username=#{username};
     </select>
@@ -14,4 +20,17 @@
     <insert id="saveUser" parameterType="com.yijia.management.vo.User">
         insert into user(username,password)values (#{username},#{password});
     </insert>
+
+    <select id="checkUsername" resultType="int" parameterType="string">
+        select count(1) from `user`
+        where username=#{username}
+    </select>
+
+    <select id="selectLogin" resultMap="userMap" parameterType="map">
+        select
+        <include refid="Base_column_List"/>
+        from user
+        where username = #{username}
+        and password = #{password}
+    </select>
 </mapper>
