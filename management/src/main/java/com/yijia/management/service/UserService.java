@@ -25,8 +25,10 @@ public class UserService {
         return ServerResponse.createBySuccess("登录成功!",user);
     }
 
-    public User findAll(){
-        return userMapper.findAll();
+    public ServerResponse<User> findAll(){
+        User user = userMapper.findAll();
+        return ServerResponse.createBySuccess("查询成功！",user);
+
     }
 
     public String saveUser(User user){

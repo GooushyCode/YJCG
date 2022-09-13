@@ -1,13 +1,10 @@
 package com.yijia.management.controller;
 import com.yijia.management.common.Const;
 import com.yijia.management.common.ServerResponse;
-import com.yijia.management.mapper.UserMapper;
 import com.yijia.management.service.UserService;
 import com.yijia.management.vo.User;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -26,6 +23,7 @@ public class UserController {
         if (response.isSuccess()){
             session.setAttribute(Const.CURRENT_USER,response.getData());
         }
+        System.out.println(username+" "+password);
         return response;
     }
 
@@ -44,6 +42,14 @@ public class UserController {
             return ServerResponse.createBySuccess(user);
         }
         return ServerResponse.createByErrorMessage("用户未登录,无法获取当前登录用户的信息！");
+    }
+
+    //查询所有
+    @RequestMapping("/findAll")
+    public ServerResponse<User> getAll(){
+        ServerResponse<User> response = userService.findAll();
+        return response;
+
     }
 
 
